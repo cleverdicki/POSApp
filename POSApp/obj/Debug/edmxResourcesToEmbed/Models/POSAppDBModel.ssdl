@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="POSAppModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Food">
+    <Key>
+      <PropertyRef Name="foodId" />
+    </Key>
+    <Property Name="foodId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="foodName" Type="varchar(max)" />
+    <Property Name="foodPrice" Type="varchar(max)" />
+    <Property Name="foodType" Type="varchar(max)" />
+    <Property Name="imgPath" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Inventory">
+    <Key>
+      <PropertyRef Name="inventoryId" />
+    </Key>
+    <Property Name="inventoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="inventoryName" Type="varchar(max)" />
+    <Property Name="inventoryQuantity" Type="int" />
+  </EntityType>
+  <EntityType Name="Transaction">
+    <Key>
+      <PropertyRef Name="transactionId" />
+    </Key>
+    <Property Name="transactionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="customerName" Type="varchar(max)" />
+    <Property Name="foodName" Type="varchar(max)" />
+    <Property Name="foodQuantity" Type="int" />
+    <Property Name="description" Type="varchar(max)" />
+  </EntityType>
+  <EntityContainer Name="POSAppModelStoreContainer">
+    <EntitySet Name="Food" EntityType="Self.Food" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Inventory" EntityType="Self.Inventory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Transaction" EntityType="Self.Transaction" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

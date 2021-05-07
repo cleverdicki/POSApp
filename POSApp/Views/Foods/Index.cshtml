@@ -1,0 +1,65 @@
+﻿@model IEnumerable<POSApp.Models.Food>
+
+@{
+    ViewBag.Title = "Food List";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-6 food-index-left-top">
+                <h2>Menu Management</h2>
+            </div>
+            <div class="col-md-6 food-index-right-top">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            </div>
+        </div>
+    </div>
+</div>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<div class="horizontal-line"></div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.foodName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.foodPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.foodType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.imgPath)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.foodName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.foodPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.foodType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.imgPath)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.foodId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.foodId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.foodId })
+        </td>
+    </tr>
+}
+
+</table>

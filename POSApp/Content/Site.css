@@ -1,24 +1,111 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿@import url('https://fonts.googleapis.com/css2?family=Barlow&display=swap');
+
+*, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Barlow', sans-serif;
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+.navbar-brand {
+    padding: 17px;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
+.sidebar-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 70px;
+    height: 100vh;
+    font-size: 20px;
+    background-color: #3700B3;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    box-shadow: 0px 0px 20px #d4d4d4;
+    transition: .5s ease;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+.sidebar-menu:hover {
+    width: 200px;
+    overflow-y: scroll;
+}
+
+.sidebar-menu .menu-item {
+    padding: 10px;
+    transition: .5s ease;
+}
+
+.sidebar-menu a {
+    color: #dddddd;
+    text-decoration: none;
+}
+
+.sidebar-menu a:hover {
+    color: #dddddd;
+    text-decoration: none;
+}
+
+.sidebar-menu .menu-item:hover {
+    margin-left: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: #03DAC5;
+    cursor: pointer;
+}
+
+.sidebar-menu .menu-item .fa {
+    font-size: 25px;
+    width: 40px;
+    margin-right: 20px;
+    padding: 10px;
+}
+
+.main-menu {
+    padding-left: 200px;
+    transition: .5s ease;
+    overflow: hidden;
+}
+
+.sidebar-menu:hover ~ .main-menu {
+    padding-left: 250px;
+}
+
+.list-order {
+    background-color: #3700B3;
+    position: fixed;
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+.main-menu {
+    padding-top: 90px;
+}
+
+.horizontal-line {
+    width: 1000px;
+    height: 1px;
+    background-color: silver;
+}
+
+.food-index-right-top input {
+    position: absolute;
+    margin-right: 150px;
+    right: 0;
+    width: 175px;
+    height: 30px;
+}
+
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #bbbbbb;
+    border-radius: 10px;
 }

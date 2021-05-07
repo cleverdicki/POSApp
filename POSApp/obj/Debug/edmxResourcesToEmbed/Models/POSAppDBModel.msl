@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="POSAppModelStoreContainer" CdmEntityContainer="POSAppEntities">
+    <EntitySetMapping Name="Foods">
+      <EntityTypeMapping TypeName="POSAppModel.Food">
+        <MappingFragment StoreEntitySet="Food">
+          <ScalarProperty Name="foodId" ColumnName="foodId" />
+          <ScalarProperty Name="foodName" ColumnName="foodName" />
+          <ScalarProperty Name="foodPrice" ColumnName="foodPrice" />
+          <ScalarProperty Name="foodType" ColumnName="foodType" />
+          <ScalarProperty Name="imgPath" ColumnName="imgPath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Inventories">
+      <EntityTypeMapping TypeName="POSAppModel.Inventory">
+        <MappingFragment StoreEntitySet="Inventory">
+          <ScalarProperty Name="inventoryId" ColumnName="inventoryId" />
+          <ScalarProperty Name="inventoryName" ColumnName="inventoryName" />
+          <ScalarProperty Name="inventoryQuantity" ColumnName="inventoryQuantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transactions">
+      <EntityTypeMapping TypeName="POSAppModel.Transaction">
+        <MappingFragment StoreEntitySet="Transaction">
+          <ScalarProperty Name="transactionId" ColumnName="transactionId" />
+          <ScalarProperty Name="customerName" ColumnName="customerName" />
+          <ScalarProperty Name="foodName" ColumnName="foodName" />
+          <ScalarProperty Name="foodQuantity" ColumnName="foodQuantity" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
