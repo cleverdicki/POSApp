@@ -120,7 +120,7 @@
 
     @foreach (var item in Model.InventoryView)
     {
-    <tr>
+     <tr class="inventory-data-tr">
         <td>
             @Html.DisplayFor(modelItem => item.inventoryName)
         </td>
@@ -131,17 +131,121 @@
             @Html.DisplayFor(modelItem => item.inventoryWeight)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.inventoryPrice)
+            Rp. @Html.DisplayFor(modelItem => item.inventoryPrice)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.inventoryTotalPrice)
+             @Html.DisplayFor(modelItem => item.inventoryTotalPrice)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.inventoryId }) |
-            @Html.ActionLink("Details", "Details", new { id = item.inventoryId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.inventoryId })
-        </td>
-    </tr>
-    }
+            <div class="row inventory-edit-delete">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="inventory-modal">
+                                <button type="button" class="btn btn-inventory-modal" data-bs-toggle="modal" data-bs-target="#inventoryModalEdit">
+                                    <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
+                                </button>
+                                <div class="modal fade" id="inventoryModalEdit" tabindex="-1" aria-labelledby="inventoryModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="inventoryModalLabel">Form Tambah Bahan</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                @using (Html.BeginForm("Edit", "Inventories", FormMethod.Post))
+                                                {
+                                                    @Html.AntiForgeryToken()
 
+                                                    <div class="form-horizontal">
+                                                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-6">Nama Bahan</label>
+                                                                    <div class="col-md-10">
+                                                                        <input type="hidden" id="inventoryId" name="inventoryId" value="@Html.DisplayFor(modelItem => item.inventoryId)">
+                                                                        <div class="form-group form_add_food">
+                                                                            <input type="text" class="form-control form-input-inventory" id="inventoryName" name="inventoryName" placeholder="Nama barang" value="@Html.DisplayFor(modelItem => item.inventoryName)">
+                                                                        </div>
+                                                                        @Html.ValidationMessageFor(model => model.InventoryModel.inventoryName, "", new { @class = "text-danger" })
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-6">Kuantitas</label>
+                                                                    <div class="col-md-10">
+                                                                        <div class="form-group form_add_food">
+                                                                            <input type="text" class="form-control form-input-inventory" id="inventoryQuantity" name="inventoryQuantity" placeholder="Banyak barang" value="@Html.DisplayFor(modelItem => item.inventoryQuantity)">
+                                                                        </div>
+                                                                        @Html.ValidationMessageFor(model => model.InventoryModel.inventoryQuantity, "", new { @class = "text-danger" })
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-6">Satuan</label>
+                                                                    <div class="col-md-10">
+                                                                        <div class="form-group form_add_food">
+                                                                            <input type="text" class="form-control form-input-inventory" id="inventoryWeight" name="inventoryWeight" placeholder="Contoh: Kg" value="@Html.DisplayFor(modelItem => item.inventoryWeight)">
+                                                                        </div>
+                                                                        @Html.ValidationMessageFor(model => model.InventoryModel.inventoryWeight, "", new { @class = "text-danger" })
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-6">Harga Satuan</label>
+                                                                    <div class="col-md-10">
+                                                                        <div class="form-group form_add_food">
+                                                                            <input type="text" class="form-control form-input-inventory" id="inventoryPrice" name="inventoryPrice" placeholder="Harga satu barang" value="@Html.DisplayFor(modelItem => item.inventoryPrice)">
+                                                                        </div>
+                                                                        @Html.ValidationMessageFor(model => model.InventoryModel.inventoryPrice, "", new { @class = "text-danger" })
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-6">Harga</label>
+                                                                    <div class="col-md-10">
+                                                                        <div class="form-group form_add_food">
+                                                                            <input type="text" class="form-control form-input-inventory" id="inventoryTotalPrice" name="inventoryTotalPrice" placeholder="" value="@Html.DisplayFor(modelItem => item.inventoryTotalPrice)">
+                                                                        </div>
+                                                                        @Html.ValidationMessageFor(model => model.InventoryModel.inventoryTotalPrice, "", new { @class = "text-danger" })
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                                            <button type="submit" class="btn btn-primary">Simpan</button>
+                                                        </div>
+                                                    </div>
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <button type="button" class="btn inventory-modal-delete" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
+                            </button>
+                            <div class="modal fade inventory-modal-delete" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Apakah Anda yakin ingin menghapus</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button class="btn inventory-delete-btn-yes">@Html.ActionLink("Ya", "Deleted", "Inventories", new { id = item.inventoryId }, null)</button>
+                                            <button type="button" class="btn inventory-delete-btn-no" data-bs-dismiss="modal">Tidak</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </td>
+     </tr>
+    }
 </table>

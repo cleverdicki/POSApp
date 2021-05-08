@@ -89,15 +89,27 @@ namespace POSApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "inventoryId,inventoryName,inventoryQuantity,inventoryWeight,inventoryPrice,inventoryTotalPrice")] Inventory inventory)
+        public ActionResult Edit(FormCollection form, Inventory inventory)
         {
-            if (ModelState.IsValid)
-            {
-                db.Entry(inventory).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(inventory);
+            string inventoryId = form["inventoryId"];
+            string inventoryName = form["inventoryName"];
+            string inventoryQuantity = form["inventoryQuantity"];
+            string inventoryWeight = form["inventoryWeight"];
+            string inventoryPrice = form["inventoryPrice"];
+            string inventoryTotalPrice = form["inventoryTotalPrice"];
+
+            Inventory obj = new Inventory();
+            obj.inventoryId = Int16.Parse(inventoryId);
+            obj.inventoryName = inventoryName;
+            obj.inventoryQuantity = Int16.Parse(inventoryQuantity);
+            obj.inventoryWeight = inventoryWeight;
+            obj.inventoryPrice = Int16.Parse(inventoryPrice);
+            obj.inventoryTotalPrice = Int16.Parse(inventoryTotalPrice);
+
+            db.Entry(obj).State = EntityState.Modified;
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
         }
 
         // GET: Inventories/Delete/5
@@ -123,6 +135,15 @@ namespace POSApp.Controllers
             Inventory inventory = db.Inventories.Find(id);
             db.Inventories.Remove(inventory);
             db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Deleted(int id)
+        {
+            var res = db.Inventories.Where(x => x.inventoryId == id).First();
+            db.Inventories.Remove(res);
+            db.SaveChanges();
+
             return RedirectToAction("Index");
         }
 

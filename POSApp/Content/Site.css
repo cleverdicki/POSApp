@@ -234,9 +234,57 @@
     left: 35%;
 }
 
+.inventory-modal-delete .modal-dialog {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 35%;
+    left: 37%;
+}
+
+.inventory-modal-delete .modal-dialog .modal-content {
+    width: 500px;
+    border-radius: 25px;
+}
+
+.inventory-modal-delete .modal-dialog .modal-content .modal-body p {
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.inventory-modal-delete .modal-dialog .modal-content .modal-footer {
+    justify-content: center!important;
+}
+
+.inventory-modal-delete .modal-dialog .modal-content .modal-footer button {
+    width: 100px;
+    box-shadow: 1px 3px 3px grey;
+}
+
+.inventory-modal-delete .modal-dialog .modal-content .modal-footer .inventory-delete-btn-yes {
+    color: white;
+}
+
 .form-input-inventory {
     width: 525px !important;
     background: #c4c4c4c4 !important;
+}
+
+.modal-footer .inventory-delete-btn-yes {
+    background-color: #3700B3;
+}
+
+.modal-footer .inventory-delete-btn-no {
+    border-color: #3700B3;
+}
+
+.inventory-edit-delete {
+    margin: -10px -50px !important;
+}
+
+.inventory-edit-delete .inventory-modal-delete {
+    margin-left: -45px;
 }
 
 ::-webkit-scrollbar {
