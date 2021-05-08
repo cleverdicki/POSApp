@@ -11,7 +11,7 @@
           </Key>
           <Property Name="foodId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="foodName" Type="varchar(max)" />
-          <Property Name="foodPrice" Type="varchar(max)" />
+          <Property Name="foodPrice" Type="int" />
           <Property Name="foodType" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="Inventory">
@@ -51,7 +51,7 @@
           </Key>
           <Property Name="foodId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="foodName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="foodPrice" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="foodPrice" Type="Int32" />
           <Property Name="foodType" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Inventory">

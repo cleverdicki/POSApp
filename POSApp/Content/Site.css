@@ -62,7 +62,7 @@
 }
 
 .main-menu {
-    padding-left: 200px;
+    padding: 0px 200px;
     transition: .5s ease;
     overflow: hidden;
 }
@@ -93,6 +93,54 @@
     height: 3px;
     background-color: #3700B3;
 }
+
+.inventory-header, .food-header {
+    border-bottom: 3px solid #3700B3;
+}
+
+.inventory-index-left-top h2 {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.inventory-index-left-top p {
+    margin-bottom: 0px!important;
+    color: #3700B3;
+}
+
+.inventory-index-right-top .inventory-form-search {
+    position: absolute;
+    margin-top: 0px;
+    right: 0;
+    width: 175px;
+    height: 30px;
+    background: #3700B3;
+}
+
+.inventory-index-right-top .btn-inventory-modal {
+    position: absolute;
+    margin-top: 35px;
+    right: 0;
+    width: 100px;
+    height: 30px;
+    background: #03DAC5;
+    border-radius: 5px;
+    border-style: none;
+    color: white;
+}
+
+ .inventory-index-right-top a:hover {
+     text-decoration: none;
+ }
+
+ .inventory-label-name-invent {
+     padding-right: 75px;
+ }
+
+ .inventory-table .inventory-tr {
+     border-bottom: 1px solid #dddd;
+ }
+
 
 .food-index-left-top h2 {
     font-size: 30px;
@@ -164,6 +212,31 @@
 .form-select {
     width:255px!important;
     height: 35px!important;
+}
+
+.inventory-modal .modal-dialog .modal-content .modal-header .modal-title {
+    margin-left: 1px;
+    font-weight: 600;
+    font-size: 35px;
+}
+
+.inventory-modal .modal-dialog .modal-content {
+    width: 600px;
+    height: 600px;
+    border-radius: 25px;
+}
+
+.inventory-modal .modal-dialog {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 15%;
+    left: 35%;
+}
+
+.form-input-inventory {
+    width: 525px !important;
+    background: #c4c4c4c4 !important;
 }
 
 ::-webkit-scrollbar {

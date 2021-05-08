@@ -6,7 +6,7 @@
     </Key>
     <Property Name="foodId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="foodName" Type="varchar(max)" />
-    <Property Name="foodPrice" Type="varchar(max)" />
+    <Property Name="foodPrice" Type="int" />
     <Property Name="foodType" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="Inventory">

@@ -53,11 +53,10 @@ namespace POSApp.Controllers
             string foodName = form["foodName"];
             string foodPrice = form["foodPrice"];
             string foodType = form["foodType"];
-            string imgPath = form["imgPath"];
 
             Food obj = new Food();
             obj.foodName = foodName;
-            obj.foodPrice = foodPrice;
+            obj.foodPrice = Int16.Parse(foodPrice);
             obj.foodType = foodType;
 
             db.Foods.Add(obj);

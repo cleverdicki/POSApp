@@ -80,3 +80,4 @@ C:\Users\Asus\source\repos\POSApp\POSApp\obj\Debug\POSApp.csproj.CoreCompileInpu
 C:\Users\Asus\source\repos\POSApp\POSApp\obj\Debug\POSApp.csproj.CopyComplete
 C:\Users\Asus\source\repos\POSApp\POSApp\obj\Debug\POSApp.dll
 C:\Users\Asus\source\repos\POSApp\POSApp\obj\Debug\POSApp.pdb
+C:\Users\Asus\source\repos\POSApp\POSApp\obj\Debug\POSApp.csprojAssemblyReference.cache

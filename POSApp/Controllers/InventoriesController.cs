@@ -17,7 +17,9 @@ namespace POSApp.Controllers
         // GET: Inventories
         public ActionResult Index()
         {
-            return View(db.Inventories.ToList());
+            ViewCreateModel viewCreateModel = new ViewCreateModel();
+            viewCreateModel.InventoryView = db.Inventories.ToList();
+            return View(viewCreateModel);
         }
 
         // GET: Inventories/Details/5
@@ -46,16 +48,25 @@ namespace POSApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "inventoryId,inventoryName,inventoryQuantity")] Inventory inventory)
+        public ActionResult Create(FormCollection form, Inventory inventory)
         {
-            if (ModelState.IsValid)
-            {
-                db.Inventories.Add(inventory);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+            string inventoryName = form["inventoryName"];
+            string inventoryQuantity = form["inventoryQuantity"];
+            string inventoryWeight = form["inventoryWeight"];
+            string inventoryPrice = form["inventoryPrice"];
+            string inventoryTotalPrice = form["inventoryTotalPrice"];
 
-            return View(inventory);
+            Inventory obj = new Inventory();
+            obj.inventoryName = inventoryName;
+            obj.inventoryQuantity = Int16.Parse(inventoryQuantity);
+            obj.inventoryWeight = inventoryWeight;
+            obj.inventoryPrice = Int16.Parse(inventoryPrice);
+            obj.inventoryTotalPrice = Int16.Parse(inventoryTotalPrice);
+
+            db.Inventories.Add(obj);
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
         }
 
         // GET: Inventories/Edit/5
@@ -78,7 +89,7 @@ namespace POSApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "inventoryId,inventoryName,inventoryQuantity")] Inventory inventory)
+        public ActionResult Edit([Bind(Include = "inventoryId,inventoryName,inventoryQuantity,inventoryWeight,inventoryPrice,inventoryTotalPrice")] Inventory inventory)
         {
             if (ModelState.IsValid)
             {

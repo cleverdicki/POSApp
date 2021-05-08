@@ -16,7 +16,7 @@ namespace POSApp.Models
     {
         public int foodId { get; set; }
         public string foodName { get; set; }
-        public string foodPrice { get; set; }
+        public Nullable<int> foodPrice { get; set; }
         public string foodType { get; set; }
     }
 }
