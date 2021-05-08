@@ -76,8 +76,8 @@ C:\Users\Asus\source\repos\POSApp\POSApp\bin\System.Web.WebPages.Razor.xml
 C:\Users\Asus\source\repos\POSApp\POSApp\bin\Newtonsoft.Json.xml
 C:\Users\Asus\source\repos\POSApp\POSApp\bin\Antlr3.Runtime.pdb
 C:\Users\Asus\source\repos\POSApp\POSApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Asus\source\repos\POSApp\POSApp\obj\Debug\POSApp.csprojAssemblyReference.cache
 C:\Users\Asus\source\repos\POSApp\POSApp\obj\Debug\POSApp.csproj.CoreCompileInputs.cache
 C:\Users\Asus\source\repos\POSApp\POSApp\obj\Debug\POSApp.csproj.CopyComplete
 C:\Users\Asus\source\repos\POSApp\POSApp\obj\Debug\POSApp.dll
 C:\Users\Asus\source\repos\POSApp\POSApp\obj\Debug\POSApp.pdb
+C:\Users\Asus\source\repos\POSApp\POSApp\obj\Debug\POSApp.csprojAssemblyReference.cache

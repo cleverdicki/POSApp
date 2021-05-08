@@ -83,19 +83,82 @@
 }
 
 .horizontal-line {
-    width: 1000px;
+    width: 1500px;
     height: 1px;
     background-color: silver;
+}
+
+.food-index-left-top h2 {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.food-index-left-top a {
+    font-weight: 600;
+    margin-right: 15px;
+    text-decoration: none;
+}
+
+.food-index-left-top a:hover {
+    text-decoration: none;
 }
 
 .food-index-right-top input {
     position: absolute;
     margin-right: 150px;
+    margin-top: 10px;
     right: 0;
     width: 175px;
     height: 30px;
 }
 
+.food-list {
+    padding: 20px 0;
+}
+
+.food-list .food-modal {
+    padding: 20px 0;
+}
+.food-list .food-modal .btn-food-modal {
+    border-style: dashed;
+    border-color: #3700B3;
+    color: #3700B3;
+    padding: 75px 20px;
+}
+
+.food-list .food-modal .modal-dialog {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 20%;
+    left: 30%;
+}
+
+.food-list .food-modal .modal-dialog .modal-content {
+    width: 750px;
+    height: 600px;
+    border-radius: 25px;
+}
+
+.food-list .food-modal .modal-dialog .modal-content .modal-header .modal-title {
+    margin-left: 1px;
+    font-weight: 600;
+    font-size: 35px;
+}
+
+.form-input-food {
+    width: 300px;
+    background: #c4c4c4c4!important;
+}
+
+.control-label {
+    font-weight: 600;
+}
+
+.form-select {
+    width:255px!important;
+    height: 35px!important;
+}
 
 ::-webkit-scrollbar {
     width: 7px;

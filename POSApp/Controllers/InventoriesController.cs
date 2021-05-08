@@ -10,116 +10,107 @@ using POSApp.Models;
 
 namespace POSApp.Controllers
 {
-    public class FoodsController : Controller
+    public class InventoriesController : Controller
     {
         private POSAppEntities db = new POSAppEntities();
 
-        // GET: Foods
+        // GET: Inventories
         public ActionResult Index()
         {
-            ViewCreateModel viewCreateModel = new ViewCreateModel();
-            viewCreateModel.FoodView = db.Foods.ToList();
-            return View(viewCreateModel);
+            return View(db.Inventories.ToList());
         }
 
-        // GET: Foods/Details/5
+        // GET: Inventories/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Food food = db.Foods.Find(id);
-            if (food == null)
+            Inventory inventory = db.Inventories.Find(id);
+            if (inventory == null)
             {
                 return HttpNotFound();
             }
-            return View(food);
+            return View(inventory);
         }
 
-        // GET: Foods/Create
+        // GET: Inventories/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Foods/Create
+        // POST: Inventories/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(FormCollection form, Food food)
+        public ActionResult Create([Bind(Include = "inventoryId,inventoryName,inventoryQuantity")] Inventory inventory)
         {
-            string foodName = form["foodName"];
-            string foodPrice = form["foodPrice"];
-            string foodType = form["foodType"];
-            string imgPath = form["imgPath"];
+            if (ModelState.IsValid)
+            {
+                db.Inventories.Add(inventory);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
 
-            Food obj = new Food();
-            obj.foodName = foodName;
-            obj.foodPrice = foodPrice;
-            obj.foodType = foodType;
-            obj.imgPath = imgPath;
-
-            db.Foods.Add(obj);
-            db.SaveChanges();
-
-            return RedirectToAction("Index");
+            return View(inventory);
         }
 
-        // GET: Foods/Edit/5
+        // GET: Inventories/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Food food = db.Foods.Find(id);
-            if (food == null)
+            Inventory inventory = db.Inventories.Find(id);
+            if (inventory == null)
             {
                 return HttpNotFound();
             }
-            return View(food);
+            return View(inventory);
         }
 
-        // POST: Foods/Edit/5
+        // POST: Inventories/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "foodId,foodName,foodPrice,foodType,imgPath")] Food food)
+        public ActionResult Edit([Bind(Include = "inventoryId,inventoryName,inventoryQuantity")] Inventory inventory)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(food).State = EntityState.Modified;
+                db.Entry(inventory).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(food);
+            return View(inventory);
         }
 
-        // GET: Foods/Delete/5
+        // GET: Inventories/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Food food = db.Foods.Find(id);
-            if (food == null)
+            Inventory inventory = db.Inventories.Find(id);
+            if (inventory == null)
             {
                 return HttpNotFound();
             }
-            return View(food);
+            return View(inventory);
         }
 
-        // POST: Foods/Delete/5
+        // POST: Inventories/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Food food = db.Foods.Find(id);
-            db.Foods.Remove(food);
+            Inventory inventory = db.Inventories.Find(id);
+            db.Inventories.Remove(inventory);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
