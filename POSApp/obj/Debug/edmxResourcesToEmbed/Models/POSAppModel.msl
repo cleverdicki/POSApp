@@ -17,6 +17,9 @@
           <ScalarProperty Name="inventoryId" ColumnName="inventoryId" />
           <ScalarProperty Name="inventoryName" ColumnName="inventoryName" />
           <ScalarProperty Name="inventoryQuantity" ColumnName="inventoryQuantity" />
+          <ScalarProperty Name="inventoryWeight" ColumnName="inventoryWeight" />
+          <ScalarProperty Name="inventoryPrice" ColumnName="inventoryPrice" />
+          <ScalarProperty Name="inventoryTotalPrice" ColumnName="inventoryTotalPrice" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

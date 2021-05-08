@@ -88,6 +88,12 @@
     background-color: silver;
 }
 
+.horizontal-line-inventories {
+    width: 1600px;
+    height: 3px;
+    background-color: #3700B3;
+}
+
 .food-index-left-top h2 {
     font-size: 30px;
     font-weight: 600;
@@ -130,13 +136,13 @@
     margin: 0;
     padding: 0;
     position: absolute;
-    top: 20%;
-    left: 30%;
+    top: 25%;
+    left: 35%;
 }
 
 .food-list .food-modal .modal-dialog .modal-content {
-    width: 750px;
-    height: 600px;
+    width: 500px;
+    height: 450px;
     border-radius: 25px;
 }
 

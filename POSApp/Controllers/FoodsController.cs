@@ -59,7 +59,6 @@ namespace POSApp.Controllers
             obj.foodName = foodName;
             obj.foodPrice = foodPrice;
             obj.foodType = foodType;
-            obj.imgPath = imgPath;
 
             db.Foods.Add(obj);
             db.SaveChanges();

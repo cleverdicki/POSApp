@@ -135,28 +135,28 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Food.cs">
-      <DependentUpon>POSAppDBModel.tt</DependentUpon>
+      <DependentUpon>POSAppModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Inventory.cs">
-      <DependentUpon>POSAppDBModel.tt</DependentUpon>
+      <DependentUpon>POSAppModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\POSAppDBModel.Context.cs">
+    <Compile Include="Models\POSAppModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>POSAppDBModel.Context.tt</DependentUpon>
+      <DependentUpon>POSAppModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\POSAppDBModel.cs">
+    <Compile Include="Models\POSAppModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>POSAppDBModel.tt</DependentUpon>
+      <DependentUpon>POSAppModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\POSAppDBModel.Designer.cs">
+    <Compile Include="Models\POSAppModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>POSAppDBModel.edmx</DependentUpon>
+      <DependentUpon>POSAppModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Transaction.cs">
-      <DependentUpon>POSAppDBModel.tt</DependentUpon>
+      <DependentUpon>POSAppModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ViewCreateModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -166,24 +166,24 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\POSAppDBModel.Context.tt">
+    <Content Include="Models\POSAppModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>POSAppDBModel.Context.cs</LastGenOutput>
-      <DependentUpon>POSAppDBModel.edmx</DependentUpon>
+      <DependentUpon>POSAppModel.edmx</DependentUpon>
+      <LastGenOutput>POSAppModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\POSAppDBModel.tt">
+    <Content Include="Models\POSAppModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>POSAppDBModel.edmx</DependentUpon>
-      <LastGenOutput>POSAppDBModel.cs</LastGenOutput>
+      <DependentUpon>POSAppModel.edmx</DependentUpon>
+      <LastGenOutput>POSAppModel.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\POSAppDBModel.edmx">
+    <EntityDeploy Include="Models\POSAppModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>POSAppDBModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>POSAppModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\POSAppDBModel.edmx.diagram">
-      <DependentUpon>POSAppDBModel.edmx</DependentUpon>
+    <Content Include="Models\POSAppModel.edmx.diagram">
+      <DependentUpon>POSAppModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -210,15 +210,11 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Inventories\Create.cshtml" />
-    <Content Include="Views\Inventories\Delete.cshtml" />
-    <Content Include="Views\Inventories\Details.cshtml" />
-    <Content Include="Views\Inventories\Edit.cshtml" />
-    <Content Include="Views\Inventories\Index.cshtml" />
     <Content Include="Views\Foods\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

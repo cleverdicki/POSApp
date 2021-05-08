@@ -43,52 +43,37 @@
                                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label class="control-label col-md-6">Nama Makanan</label>
-                                                    <div class="col-md-10">
-                                                        <div class="form-group form_add_food">
-                                                            <input type="text" class="form-control form-input-food" id="foodName" name="foodName" placeholder="Nasi goreng seafood...">
-                                                        </div>
-                                                        @Html.ValidationMessageFor(model => model.FoodModel.foodName, "", new { @class = "text-danger" })
-                                                    </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-6">Nama Makanan</label>
+                                            <div class="col-md-10">
+                                                <div class="form-group form_add_food">
+                                                    <input type="text" class="form-control form-input-food" id="foodName" name="foodName" placeholder="Nasi goreng seafood...">
                                                 </div>
-
-                                                <div class="form-group">
-                                                    <label class="control-label col-md-6">Harga</label>
-                                                    <div class="col-md-10">
-                                                        <div class="form-group form_add_food">
-                                                            <input type="text" class="form-control form-input-food" id="foodPrice" name="foodPrice" placeholder="Rp 10000">
-                                                        </div>
-                                                        @Html.ValidationMessageFor(model => model.FoodModel.foodPrice, "", new { @class = "text-danger" })
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label class="control-label col-md-6">Jenis</label>
-                                                    <div class="col-md-10">
-                                                        <div class="form-group form_add_food">
-                                                            <select class="form-select form-input-food" aria-label="Default select example" id="foodType" name="foodType">
-                                                                <option selected>Silahkan pilih jenis</option>
-                                                                <option value="Makanan">Makanan</option>
-                                                                <option value="Minuman">Minuman</option>
-                                                            </select>
-                                                        </div>
-                                                        @Html.ValidationMessageFor(model => model.FoodModel.foodType, "", new { @class = "text-danger" })
-                                                    </div>
-                                                </div>
+                                                @Html.ValidationMessageFor(model => model.FoodModel.foodName, "", new { @class = "text-danger" })
                                             </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label class="control-label col-md-6">Upload Gambar</label>
-                                                    <div class="col-md-10">
-                                                        <div class="form-group form_add_food">
-                                                            <input type="text" class="form-control" id="imgPath" name="imgPath " placeholder="*masukkan nama event">
-                                                        </div>
-                                                        @Html.ValidationMessageFor(model => model.FoodModel.imgPath, "", new { @class = "text-danger" })
-                                                    </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="control-label col-md-6">Harga</label>
+                                            <div class="col-md-10">
+                                                <div class="form-group form_add_food">
+                                                    <input type="text" class="form-control form-input-food" id="foodPrice" name="foodPrice" placeholder="Rp 10000">
                                                 </div>
+                                                @Html.ValidationMessageFor(model => model.FoodModel.foodPrice, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="control-label col-md-6">Jenis</label>
+                                            <div class="col-md-10">
+                                                <div class="form-group form_add_food">
+                                                    <select class="form-select form-input-food" aria-label="Default select example" id="foodType" name="foodType">
+                                                        <option selected>Silahkan pilih jenis</option>
+                                                        <option value="Makanan">Makanan</option>
+                                                        <option value="Minuman">Minuman</option>
+                                                    </select>
+                                                </div>
+                                                @Html.ValidationMessageFor(model => model.FoodModel.foodType, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
                                     </div>
@@ -116,9 +101,6 @@
         <th>
             @Html.DisplayNameFor(model => model.FoodModel.foodType)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FoodModel.imgPath)
-        </th>
         <th></th>
     </tr>
 
@@ -133,9 +115,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.foodType)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.imgPath)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.foodId }) |

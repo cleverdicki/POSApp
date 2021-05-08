@@ -17,5 +17,8 @@ namespace POSApp.Models
         public int inventoryId { get; set; }
         public string inventoryName { get; set; }
         public Nullable<int> inventoryQuantity { get; set; }
+        public string inventoryWeight { get; set; }
+        public Nullable<int> inventoryPrice { get; set; }
+        public Nullable<int> inventoryTotalPrice { get; set; }
     }
 }

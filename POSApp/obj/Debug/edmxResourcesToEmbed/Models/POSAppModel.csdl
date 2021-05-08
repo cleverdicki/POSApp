@@ -16,6 +16,9 @@
     <Property Name="inventoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="inventoryName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="inventoryQuantity" Type="Int32" />
+    <Property Name="inventoryWeight" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="inventoryPrice" Type="Int32" />
+    <Property Name="inventoryTotalPrice" Type="Int32" />
   </EntityType>
   <EntityType Name="Transaction">
     <Key>
