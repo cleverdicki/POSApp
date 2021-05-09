@@ -20,107 +20,164 @@
     </div>
 </div>
 <div class="food-list">
-    <div class="food-modal">
-        <button type="button" class="btn btn-food-modal" data-bs-toggle="modal" data-bs-target="#foodModal">
-            Tambah Menu
-        </button>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="food-modal">
+                        <button type="button" class="btn btn-food-modal" data-bs-toggle="modal" data-bs-target="#foodModal">
+                            Tambah Menu
+                        </button>
 
-        <div class="modal fade" id="foodModal" tabindex="-1" aria-labelledby="foodModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="foodModal" tabindex="-1" aria-labelledby="foodModalLabel" aria-hidden="true">
 
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="foodModalLabel">Form Tambah Menu</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="foodModalLabel">Form Tambah Menu</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        @using (Html.BeginForm("Create", "Foods", FormMethod.Post))
+                                        {
+                                            @Html.AntiForgeryToken()
+
+                                            <div class="form-horizontal">
+                                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-6">Nama Makanan</label>
+                                                            <div class="col-md-10">
+                                                                <div class="form-group form_add_food">
+                                                                    <input type="text" class="form-control form-input-food" id="foodName" name="foodName" placeholder="Nasi goreng seafood...">
+                                                                </div>
+                                                                @Html.ValidationMessageFor(model => model.FoodModel.foodName, "", new { @class = "text-danger" })
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-6">Harga</label>
+                                                            <div class="col-md-10">
+                                                                <div class="form-group form_add_food">
+                                                                    <input type="text" class="form-control form-input-food" id="foodPrice" name="foodPrice" placeholder="Rp 10000">
+                                                                </div>
+                                                                @Html.ValidationMessageFor(model => model.FoodModel.foodPrice, "", new { @class = "text-danger" })
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-6">Jenis</label>
+                                                            <div class="col-md-10">
+                                                                <div class="form-group form_add_food">
+                                                                    <select class="form-select form-input-food" aria-label="Default select example" id="foodType" name="foodType">
+                                                                        <option selected>Silahkan pilih jenis</option>
+                                                                        <option value="Makanan">Makanan</option>
+                                                                        <option value="Minuman">Minuman</option>
+                                                                    </select>
+                                                                </div>
+                                                                @Html.ValidationMessageFor(model => model.FoodModel.foodType, "", new { @class = "text-danger" })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="modal-body">
-                        @using (Html.BeginForm("Create", "Foods", FormMethod.Post))
-                        {
-                            @Html.AntiForgeryToken()
-
-                            <div class="form-horizontal">
-                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label class="control-label col-md-6">Nama Makanan</label>
-                                            <div class="col-md-10">
-                                                <div class="form-group form_add_food">
-                                                    <input type="text" class="form-control form-input-food" id="foodName" name="foodName" placeholder="Nasi goreng seafood...">
-                                                </div>
-                                                @Html.ValidationMessageFor(model => model.FoodModel.foodName, "", new { @class = "text-danger" })
+                </div>
+                @foreach (var item in Model.FoodView)
+                {
+                    <div class="col-md-3">
+                        <div class="card card-menu-management" style="width: 15rem;">
+                            <img src="~/Images/FoodImage.jpg" class="card-img-top" alt=""/>
+                            <div class="card-body">
+                                <h5 class="card-title">@Html.DisplayFor(modelItem => item.foodName)</h5>
+                                <p class="card-text">Rp @Html.DisplayFor(modelItem => item.foodPrice)</p>
+                                <button type="button" class="btn btn-food-modal-edit" data-bs-toggle="modal" data-bs-target="#foodModalEdit">
+                                    <img src="~/Images/EditIcon.png" width="25" height="25" /> Edit Menu
+                                </button>
+                                <div class="modal fade" id="foodModalEdit" tabindex="-1" aria-labelledby="foodModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="foodModalLabel">Form Edit Menu</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
-                                        </div>
+                                            <div class="modal-body">
+                                                @using (Html.BeginForm("Edit", "Foods", FormMethod.Post))
+                                                {
+                                                    @Html.AntiForgeryToken()
 
-                                        <div class="form-group">
-                                            <label class="control-label col-md-6">Harga</label>
-                                            <div class="col-md-10">
-                                                <div class="form-group form_add_food">
-                                                    <input type="text" class="form-control form-input-food" id="foodPrice" name="foodPrice" placeholder="Rp 10000">
-                                                </div>
-                                                @Html.ValidationMessageFor(model => model.FoodModel.foodPrice, "", new { @class = "text-danger" })
-                                            </div>
-                                        </div>
+                                                    <div class="form-horizontal">
+                                                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-6">Nama Makanan</label>
+                                                                    <div class="col-md-10">
+                                                                        <input type="hidden" id="foodId" name="foodId" value="@Html.DisplayFor(modelItem => item.foodId)">
+                                                                        <div class="form-group form_add_food">
+                                                                            <input type="text" class="form-control form-input-food" id="foodName" name="foodName" placeholder="Nasi goreng seafood..." value="@Html.DisplayFor(modelItem => item.foodName)">
+                                                                        </div>
+                                                                        @Html.ValidationMessageFor(model => model.FoodModel.foodName, "", new { @class = "text-danger" })
+                                                                    </div>
+                                                                </div>
 
-                                        <div class="form-group">
-                                            <label class="control-label col-md-6">Jenis</label>
-                                            <div class="col-md-10">
-                                                <div class="form-group form_add_food">
-                                                    <select class="form-select form-input-food" aria-label="Default select example" id="foodType" name="foodType">
-                                                        <option selected>Silahkan pilih jenis</option>
-                                                        <option value="Makanan">Makanan</option>
-                                                        <option value="Minuman">Minuman</option>
-                                                    </select>
-                                                </div>
-                                                @Html.ValidationMessageFor(model => model.FoodModel.foodType, "", new { @class = "text-danger" })
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-6">Harga</label>
+                                                                    <div class="col-md-10">
+                                                                        <div class="form-group form_add_food">
+                                                                            <input type="text" class="form-control form-input-food" id="foodPrice" name="foodPrice" placeholder="10000" value="@Html.DisplayFor(modelItem => item.foodPrice)">
+                                                                        </div>
+                                                                        @Html.ValidationMessageFor(model => model.FoodModel.foodPrice, "", new { @class = "text-danger" })
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-6">Jenis</label>
+                                                                    <div class="col-md-10">
+                                                                        <div class="form-group form_add_food">
+                                                                            <select class="form-select form-input-food" aria-label="Default select example" id="foodType" name="foodType">
+                                                                                <option selected value="@Html.DisplayFor(modelItem => item.foodType)"></option>
+                                                                                <option value="Makanan">Makanan</option>
+                                                                                <option value="Minuman">Minuman</option>
+                                                                            </select>
+                                                                        </div>
+                                                                        @Html.ValidationMessageFor(model => model.FoodModel.foodType, "", new { @class = "text-danger" })
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <div class="button-on-modal-footer">
+                                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                                                        <button class="btn food-delete-btn-yes">@Html.ActionLink("Hapus", "Deleted", "Foods", new { id = item.foodId }, null)</button>
+                                                                        <button type="submit" class="btn btn-primary">Simpan</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                }
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                <button type="submit" class="btn btn-primary">Simpan</button>
                             </div>
-                         </div>
-                        }
+                        </div>
                     </div>
-                </div>
-            </div>
+                }
+             </div>
         </div>
     </div>
 </div>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.FoodModel.foodName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FoodModel.foodPrice)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FoodModel.foodType)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model.FoodView)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.foodName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.foodPrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.foodType)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.foodId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.foodId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.foodId })
-            </td>
-        </tr>
-    }
-
-</table>

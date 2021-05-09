@@ -54,9 +54,7 @@
     cursor: pointer;
 }
 
-.sidebar-menu .menu-item .fa {
-    font-size: 25px;
-    width: 40px;
+.sidebar-menu .menu-item .icn {
     margin-right: 20px;
     padding: 10px;
 }
@@ -177,7 +175,7 @@
     border-style: dashed;
     border-color: #3700B3;
     color: #3700B3;
-    padding: 75px 20px;
+    padding: 140px 50px;
 }
 
 .food-list .food-modal .modal-dialog {
@@ -275,6 +273,10 @@
     background-color: #3700B3;
 }
 
+.modal-footer .food-delete-btn-yes {
+    background-color: red;
+}
+
 .modal-footer .inventory-delete-btn-no {
     border-color: #3700B3;
 }
@@ -286,6 +288,31 @@
 .inventory-edit-delete .inventory-modal-delete {
     margin-left: -45px;
 }
+
+.card-menu-management {
+    margin: 10px 0px;
+}
+
+.card-menu-management .card-body {
+    background: #3700B3;
+}
+
+.card-menu-management .card-body .card-title, .card-menu-management .card-body .card-text {
+    color: white;
+    text-align: center;
+}
+
+.modal-footer-edit {
+    justify-content: center !important;
+}
+
+.card-menu-management .card-body .btn-food-modal-edit {
+    background: #3700F3;
+    margin-left: -20px;
+    width: 237px;
+}
+
+
 
 ::-webkit-scrollbar {
     width: 7px;

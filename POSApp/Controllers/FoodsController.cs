@@ -85,15 +85,23 @@ namespace POSApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "foodId,foodName,foodPrice,foodType,imgPath")] Food food)
+        public ActionResult Edit(FormCollection form, Food food)
         {
-            if (ModelState.IsValid)
-            {
-                db.Entry(food).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(food);
+            string foodId = form["foodId"];
+            string foodName = form["foodName"];
+            string foodPrice = form["foodPrice"];
+            string foodType = form["foodType"];
+
+            Food obj = new Food();
+            obj.foodId = Int16.Parse(foodId);
+            obj.foodName = foodName;
+            obj.foodPrice = Int16.Parse(foodPrice);
+            obj.foodType = foodType;
+
+            db.Entry(obj).State = EntityState.Modified;
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
         }
 
         // GET: Foods/Delete/5
@@ -119,6 +127,15 @@ namespace POSApp.Controllers
             Food food = db.Foods.Find(id);
             db.Foods.Remove(food);
             db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Deleted(int id)
+        {
+            var res = db.Foods.Where(x => x.foodId == id).First();
+            db.Foods.Remove(res);
+            db.SaveChanges();
+
             return RedirectToAction("Index");
         }
 
