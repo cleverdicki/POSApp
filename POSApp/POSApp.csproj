@@ -166,6 +166,18 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\ChecklistIcon.png" />
+    <Content Include="Images\DeleteIcon.png" />
+    <Content Include="Images\DeleteWhiteIcon.png" />
+    <Content Include="Images\DrinkImage.jpg" />
+    <Content Include="Images\EditIcon.png" />
+    <Content Include="Images\FoodImage.jpg" />
+    <Content Include="Images\HistoryIcon.png" />
+    <Content Include="Images\InventoryIcon.png" />
+    <Content Include="Images\LogoIcon.png" />
+    <Content Include="Images\ManageIcon.png" />
+    <Content Include="Images\PlusIcon.png" />
+    <Content Include="Images\SearchIcon.png" />
     <Content Include="Models\POSAppModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>POSAppModel.edmx</DependentUpon>
@@ -219,7 +231,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
