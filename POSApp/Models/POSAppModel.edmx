@@ -33,7 +33,7 @@
           <Property Name="customerName" Type="varchar(max)" />
           <Property Name="foodName" Type="varchar(max)" />
           <Property Name="foodQuantity" Type="int" />
-          <Property Name="description" Type="varchar(max)" />
+          <Property Name="foodPrice" Type="int" />
         </EntityType>
         <EntityContainer Name="POSAppModelStoreContainer">
           <EntitySet Name="Food" EntityType="Self.Food" Schema="dbo" store:Type="Tables" />
@@ -73,7 +73,7 @@
           <Property Name="customerName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="foodName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="foodQuantity" Type="Int32" />
-          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="foodPrice" Type="Int32" />
         </EntityType>
         <EntityContainer Name="POSAppEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Foods" EntityType="Self.Food" />
@@ -115,7 +115,7 @@
                 <ScalarProperty Name="customerName" ColumnName="customerName" />
                 <ScalarProperty Name="foodName" ColumnName="foodName" />
                 <ScalarProperty Name="foodQuantity" ColumnName="foodQuantity" />
-                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="foodPrice" ColumnName="foodPrice" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

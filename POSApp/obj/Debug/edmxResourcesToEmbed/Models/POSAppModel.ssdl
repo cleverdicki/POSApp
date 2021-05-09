@@ -28,7 +28,7 @@
     <Property Name="customerName" Type="varchar(max)" />
     <Property Name="foodName" Type="varchar(max)" />
     <Property Name="foodQuantity" Type="int" />
-    <Property Name="description" Type="varchar(max)" />
+    <Property Name="foodPrice" Type="int" />
   </EntityType>
   <EntityContainer Name="POSAppModelStoreContainer">
     <EntitySet Name="Food" EntityType="Self.Food" Schema="dbo" store:Type="Tables" />

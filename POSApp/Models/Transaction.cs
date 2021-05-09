@@ -18,6 +18,6 @@ namespace POSApp.Models
         public string customerName { get; set; }
         public string foodName { get; set; }
         public Nullable<int> foodQuantity { get; set; }
-        public string description { get; set; }
+        public Nullable<int> foodPrice { get; set; }
     }
 }

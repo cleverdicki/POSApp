@@ -28,7 +28,7 @@
     <Property Name="customerName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="foodName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="foodQuantity" Type="Int32" />
-    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="foodPrice" Type="Int32" />
   </EntityType>
   <EntityContainer Name="POSAppEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Foods" EntityType="Self.Food" />

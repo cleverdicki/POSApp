@@ -30,7 +30,7 @@
           <ScalarProperty Name="customerName" ColumnName="customerName" />
           <ScalarProperty Name="foodName" ColumnName="foodName" />
           <ScalarProperty Name="foodQuantity" ColumnName="foodQuantity" />
-          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="foodPrice" ColumnName="foodPrice" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

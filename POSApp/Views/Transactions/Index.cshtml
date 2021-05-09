@@ -1,0 +1,159 @@
+﻿@using POSApp.Models;
+@model ViewCreateModel
+@{
+    ViewBag.Title = "Order";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="order-left-side">
+                    <div class="row">
+                        <div class="col-md-12 order-header">
+                            <div class="row">
+                                <div class="col-md-6 order-index-left-top">
+                                    <h2>Kantin TC Nikmat</h2>
+                                    <p>Bahan Makanan & Minuman</p>
+                                </div>
+                                <div class="col-md-6 order-index-right-top">
+                                    <input class="form-control me-2 order-form-search" type="search" placeholder="Cari Makanan dan Minuman" aria-label="Search">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            @foreach (var item in Model.FoodView)
+                            {
+                                <div class="col-md-4">
+                                    <div class="card card-menu-management" style="width: 15rem;">
+                                        <img src="~/Images/FoodImage.jpg" class="card-img-top" alt="" />
+                                        <div class="card-body">
+                                            <h5 class="card-title">@Html.DisplayFor(modelItem => item.foodName)</h5>
+                                            <p class="card-text">Rp @Html.DisplayFor(modelItem => item.foodPrice)</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="orderModalLabel">Konfirmasi Pembayaran</h5>
+                            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <table style="width: 100%;">
+                                <tr>
+                                    <th>
+                                        <label class="control-label order-label-name-modal">Menu</label>
+                                    </th>
+                                    <th>
+                                        <label class="control-label order-label-name-modal">Jumlah</label>
+                                    </th>
+                                    <th>
+                                        <label class="control-label order-label-name-modal">Harga</label>
+                                    </th>
+                                </tr>
+                                @foreach (var item in Model.TransactionView)
+                                {
+                                    <tr>
+                                        <td>
+                                            <p class="order-data-displayed-modal">@Html.DisplayFor(modelItem => item.foodName)</p>
+                                        </td>
+                                        <td>
+                                            <p class="order-data-displayed-modal">@Html.DisplayFor(modelItem => item.foodQuantity)</p>
+                                        </td>
+                                        <td>
+                                            <p class="order-data-displayed-modal">@Html.DisplayFor(modelItem => item.foodPrice)</p>
+                                        </td>
+                                    </tr>
+                                }
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batalkan</button>
+                            <button class="btn order-deleteAll-btn-yes">@Html.ActionLink("Simpan", "AllDeleted", "Transactions")</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="order-right-side">
+                    <div class="order-right-side-content">
+                        <h1>Pesanan</h1>
+                        <table>
+                            <tr>
+                                <th>
+                                    <label class="control-label order-label-name-order">Menu</label>
+                                </th>
+                                <th>
+                                    <label class="control-label order-label-name-order">Jumlah</label>
+                                </th>
+                                <th>
+                                    <label class="control-label order-label-name-order">Harga</label>
+                                </th>
+                            </tr>
+                            @using (Html.BeginForm("Create", "Transactions", FormMethod.Post))
+                            {
+                                @Html.AntiForgeryToken()
+                                <tr>
+                                    <td>
+                                        <input type="text" class="form-control form-input-order" id="foodName" name="foodName" placeholder="Nama Menu">
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control form-input-order" id="foodQuantity" name="foodQuantity" placeholder="Jumlah">
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control form-input-order" id="foodPrice" name="foodPrice" placeholder="Harga">
+                                    </td>
+                                    <td>
+                                        <button type="submit" class="btn"><img src="~/Images/PlusIcon.png" width="25" height="25" /></button>
+                                    </td>
+                                </tr>
+                            }
+                            <tr class="order-title">
+                                <th>
+                                    <label class="control-label order-label-name-order"></label>
+                                </th>
+                                <th>
+                                    <label class="control-label order-label-name-order">List Pemesanan</label>
+                                </th>
+                                <th>
+                                    <label class="control-label order-label-name-order"></label>
+                                </th>
+                            </tr>
+                            @foreach (var item in Model.TransactionView)
+                            {
+                                <tr>
+                                    <td>
+                                        <p class="order-data-displayed">@Html.DisplayFor(modelItem => item.foodName)</p>
+                                    </td>
+                                    <td>
+                                        <p class="order-data-displayed">@Html.DisplayFor(modelItem => item.foodQuantity)</p>
+                                    </td>
+                                    <td>
+                                        <p class="order-data-displayed">@Html.DisplayFor(modelItem => item.foodPrice)</p>
+                                    </td>
+                                    <td>
+                                        <button class="btn inventory-delete-btn-yes">@Html.ActionLink("Hapus", "Deleted", "Transactions", new { id = item.transactionId }, null)</button>
+                                    </td>
+                                </tr>
+                            }
+                        </table>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#orderModal">
+                            Lanjutkan Pembayaran
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
